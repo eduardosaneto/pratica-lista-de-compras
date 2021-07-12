@@ -11,14 +11,12 @@ export default function InsertForm({ onAddItem }) {
     const newItem = { text };
     const req = axios.post("http://localhost:4000/items", newItem);
     req.then(res => {
+      setText("");
       onAddItem();
     });
     req.catch(err => {
       console.log(err);
     });
-
-    setText("");
-    onAddItem();
   }
 
   return (
